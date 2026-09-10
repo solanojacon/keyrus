@@ -1,6 +1,6 @@
 # Desafio Técnico Keyrus — Bank Marketing
 
-Desafio técnico de modelagem em Python para a vaga de Cientista de Dados Sênior na Keyrus. Enunciado completo em [`docs/Teste_Modelagem_Python.pdf`](docs/Teste_Modelagem_Python.pdf).
+Desafio técnico de modelagem em Python para a vaga de Data Scientist na Keyrus. Enunciado completo em [`docs/Teste_Modelagem_Python.pdf`](docs/Teste_Modelagem_Python.pdf).
 
 ## Objetivo
 

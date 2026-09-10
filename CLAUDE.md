@@ -4,7 +4,7 @@ Contexto e decisões do projeto, para persistir entre sessões. Ver também `REA
 
 ## Contexto
 
-Desafio técnico de modelagem em Python para a vaga de Cientista de Dados Sênior na Keyrus. Prazo: 7 dias corridos a partir de 2026-09-10. Roteiro completo em `docs/Teste_Modelagem_Python.pdf`; a apresentação final não faz parte deste repositório.
+Desafio técnico de modelagem em Python para a vaga de Data Scientist na Keyrus. Prazo: 7 dias corridos a partir de 2026-09-10. Roteiro completo em `docs/Teste_Modelagem_Python.pdf`; a apresentação final não faz parte deste repositório.
 
 ## Diretrizes de trabalho combinadas
 
