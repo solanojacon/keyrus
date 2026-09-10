@@ -1,0 +1,17 @@
+# Ambiente Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+.python-version
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Credenciais (nunca commitar)
+kaggle.json
+.kaggle/
+*.env
+.env
+
+# SO
+.DS_Store
