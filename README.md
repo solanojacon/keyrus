@@ -10,8 +10,9 @@ Prever se um cliente vai assinar um depósito a prazo (`y`), a partir do dataset
 
 ```text
 .
-├── bank_marketing.ipynb   # notebook único com todo o desafio (EDA → modelagem → avaliação)
+├── bank_marketing.ipynb   # notebook único com todo o desafio (EDA → pré-processamento → modelagem → avaliação → interpretação → produção)
 ├── docs/                  # enunciado do desafio e documentação do dataset
+├── models/                # gerado ao rodar o notebook (pipeline serializado) — não versionado
 ├── pyproject.toml         # dependências do projeto (gerenciado com uv)
 └── uv.lock
 ```
