@@ -42,3 +42,9 @@ Desafio técnico de modelagem em Python para a vaga de Data Scientist na Keyrus.
   - Split 80/20 estratificado por `y` (`train_test_split(..., stratify=y, random_state=RANDOM_SEED)`), por causa do desbalanceamento visto na EDA — confirmado que a proporção de `y=1` (11,7%) se manteve igual em treino e teste.
   - `X_train_proc`/`X_test_proc` mantidos como `DataFrame` (via `preprocessor.get_feature_names_out()`), não array numpy puro, para preservar nomes de coluna legíveis nas tarefas de Modelagem e Interpretação (feature importance).
   - Dependência nova: `scikit-learn`.
+- Tarefa de Construção de Modelos concluída (`## 3.` no notebook, subseções 3.1–3.2). Decisões:
+  - Comparados 4 candidatos nativos do `scikit-learn` (sem `xgboost`/`lightgbm`) via `cross_val_score` (ROC-AUC, `StratifiedKFold(5)`, só em `X_train_proc`/`y_train`): `DummyClassifier` (piso, AUC 0,50), `LogisticRegression` (0,764), `RandomForestClassifier` (0,778), `HistGradientBoostingClassifier` (0,797 — **vencedor**).
+  - Desbalanceamento tratado com `class_weight="balanced"` nos 3 modelos reais — evita depender de `imbalanced-learn`/SMOTE (nova dependência).
+  - ROC-AUC usada aqui é só para *selecionar/otimizar* o modelo (métrica threshold-independent, tolerante a desbalanceamento). Métricas de negócio (precisão/recall/limiar) ficam para a tarefa de Avaliação do Modelo.
+  - Hiperparâmetros otimizados com `RandomizedSearchCV` (n_iter=20, mesmo `StratifiedKFold(5)`, scoring ROC-AUC) em vez de `GridSearchCV` — busca exaustiva seria cara no espaço de hiperparâmetros do `HistGradientBoostingClassifier`. Melhor combinação: `min_samples_leaf=20, max_leaf_nodes=31, max_iter=200, learning_rate=0.03, l2_regularization=10.0`, ROC-AUC (CV) ≈ 0,7999.
+  - `final_model = search.best_estimator_` (já treinado com os melhores parâmetros) é a variável reaproveitada nas tarefas de Avaliação, Interpretação e Produção. `X_test_proc`/`y_test` não foram tocados nesta tarefa.
